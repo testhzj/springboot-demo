@@ -22,13 +22,6 @@ public class MqConfiguration {
 	private String nameServer;
 	@Value("${rocketmq.consume.group}")
 	private String consumeGroup;
-//	@Bean通过spring来自动配置，所以不需要了
-//	public DefaultMQProducer getDefaultMQProducer() {
-//		DefaultMQProducer mqProducer = new DefaultMQProducer();
-//		mqProducer.setProducerGroup(group);
-//		mqProducer.setNamesrvAddr(nameServer);
-//		return mqProducer;
-//	}
 	
 	@Bean
 	public DefaultMQPushConsumer getDefaultMQPushConsumer() throws MQClientException {
