@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace：命名空间，用于隔离sql-->
+<mapper namespace="com.gee.mapper.OrdersMapper">
+
+	<resultMap type="com.gee.entity.Orders" id="orderResultMap">
+		<id property="id" column="id"/>
+		<result column="number" property="number"/>
+		<association property="user" javaType="com.gee.entity.User">
+			<id property="id" column="userid"/>
+			<result column="username" property="username"/>
+		</association>
+	</resultMap>
+	<select id="getOrderUser" resultMap="orderResultMap">
+		select u.id as userid, u.username as username, o.id, o.number as number from user u, orders o
+		where u.id = o.user_id and o.id = #{id}
+	</select>
+</mapper>

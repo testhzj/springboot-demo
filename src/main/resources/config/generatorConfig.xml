@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+		location="/Users/huangzhaoji/Downloads/mysql-connector-java-8.0.15/mysql-connector-java-8.0.15.jar" /><!--这个是后加的 -->
+	<context id="context1">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost/test?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
+			userId="root" password="123456" /><!-- 数据库连接信息 -->
+		<!-- Entity实体 -->
+
+		<javaModelGenerator targetPackage="com.gee.entity"
+			targetProject="sb-demo">
+			<property name="enableSubPackages" value="true" />
+
+
+		</javaModelGenerator>
+
+		<!-- XML Mapper SQL实现 -->
+
+		<sqlMapGenerator targetPackage="com.gee.mapper"
+
+			targetProject="sb-demo">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 需要生成的表名及配置 -->
+
+		<table schema="test" tableName="orders"
+
+			enableCountByExample="true" enableUpdateByExample="true"
+
+			enableDeleteByExample="true" enableSelectByExample="true"
+
+			selectByExampleQueryId="true">
+
+		</table>
+
+		<table schema="test" tableName="user"
+
+			enableCountByExample="true" enableUpdateByExample="true"
+
+			enableDeleteByExample="true" enableSelectByExample="true"
+
+			selectByExampleQueryId="true">
+
+		</table>
+	</context>
+</generatorConfiguration>
